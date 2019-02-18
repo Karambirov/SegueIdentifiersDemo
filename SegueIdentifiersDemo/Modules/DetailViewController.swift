@@ -1,24 +1,9 @@
 import UIKit
 
-class DetailViewController: UIViewController {
+final class DetailViewController: UIViewController {
 
+    // MARK: - Properties
     @IBOutlet weak var detailDescriptionLabel: UILabel!
-
-
-    func configureView() {
-        // Update the user interface for the detail item.
-        if let detail = detailItem {
-            if let label = detailDescriptionLabel {
-                label.text = detail.description
-            }
-        }
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        configureView()
-    }
 
     var detailItem: NSDate? {
         didSet {
@@ -27,6 +12,25 @@ class DetailViewController: UIViewController {
         }
     }
 
+    // MARK: - View Controller's life cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        configureView()
+    }
 
 }
 
+// MARK: - Methods
+extension DetailViewController {
+
+    fileprivate func configureView() {
+        // Update the user interface for the detail item.
+        if let detail = detailItem {
+            if let label = detailDescriptionLabel {
+                label.text = detail.description
+            }
+        }
+    }
+
+}

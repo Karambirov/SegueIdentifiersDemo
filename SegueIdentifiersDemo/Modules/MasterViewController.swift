@@ -1,22 +1,15 @@
 import UIKit
 
-class MasterViewController: UITableViewController {
+final class MasterViewController: UITableViewController {
 
+    // MARK: - Properties
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
 
-
+    // MARK: - View Controller's life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        navigationItem.leftBarButtonItem = editButtonItem
-
-        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
-        navigationItem.rightBarButtonItem = addButton
-        if let split = splitViewController {
-            let controllers = split.viewControllers
-            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-        }
+        initialSetup()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -24,14 +17,10 @@ class MasterViewController: UITableViewController {
         super.viewWillAppear(animated)
     }
 
-    @objc
-    func insertNewObject(_ sender: Any) {
-        objects.insert(NSDate(), at: 0)
-        let indexPath = IndexPath(row: 0, section: 0)
-        tableView.insertRows(at: [indexPath], with: .automatic)
-    }
+}
 
-    // MARK: - Segues
+// MARK: - Segues
+extension MasterViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
@@ -45,7 +34,34 @@ class MasterViewController: UITableViewController {
         }
     }
 
-    // MARK: - Table View
+}
+
+// MARK: - Methods
+extension MasterViewController {
+
+    fileprivate func initialSetup() {
+        // Do any additional setup after loading the view, typically from a nib.
+        navigationItem.leftBarButtonItem = editButtonItem
+
+        let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject(_:)))
+        navigationItem.rightBarButtonItem = addButton
+        if let split = splitViewController {
+            let controllers = split.viewControllers
+            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+        }
+    }
+
+    @objc
+    fileprivate func insertNewObject(_ sender: Any) {
+        objects.insert(NSDate(), at: 0)
+        let indexPath = IndexPath(row: 0, section: 0)
+        tableView.insertRows(at: [indexPath], with: .automatic)
+    }
+
+}
+
+// MARK: - Table View
+extension MasterViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -76,7 +92,6 @@ class MasterViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
-
 
 }
 
