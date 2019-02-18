@@ -20,10 +20,15 @@ final class MasterViewController: UITableViewController {
 }
 
 // MARK: - Segues
-extension MasterViewController {
+extension MasterViewController: SegueHandlerType {
+
+    enum SegueIdentifier: String {
+        case showDetail
+    }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
+        switch segueIdentifier(for: segue) {
+        case .showDetail:
             if let indexPath = tableView.indexPathForSelectedRow {
                 let object = objects[indexPath.row] as! NSDate
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
