@@ -37,6 +37,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AA01C2AF221AF9AF00F603EB /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				AA01C2B1221AF9C100F603EB /* Config */,
+				AA01C2B0221AF9BA00F603EB /* App */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		AA01C2B0221AF9BA00F603EB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AA061E49221AF7BF004216B2 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AA01C2B1221AF9C100F603EB /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				AA061E57221AF7C1004216B2 /* Info.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		AA01C2B2221AF9C700F603EB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				AA061E4F221AF7BF004216B2 /* Main.storyboard */,
+				AA061E54221AF7C1004216B2 /* LaunchScreen.storyboard */,
+				AA061E52221AF7C1004216B2 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		AA01C2B3221AF9F200F603EB /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				AA061E4B221AF7BF004216B2 /* MasterViewController.swift */,
+				AA061E4D221AF7BF004216B2 /* DetailViewController.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		AA01C2B4221AFA0A00F603EB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		AA061E3D221AF7BF004216B2 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +107,10 @@
 		AA061E48221AF7BF004216B2 /* SegueIdentifiersDemo */ = {
 			isa = PBXGroup;
 			children = (
-				AA061E49221AF7BF004216B2 /* AppDelegate.swift */,
-				AA061E4B221AF7BF004216B2 /* MasterViewController.swift */,
-				AA061E4D221AF7BF004216B2 /* DetailViewController.swift */,
-				AA061E4F221AF7BF004216B2 /* Main.storyboard */,
-				AA061E52221AF7C1004216B2 /* Assets.xcassets */,
-				AA061E54221AF7C1004216B2 /* LaunchScreen.storyboard */,
-				AA061E57221AF7C1004216B2 /* Info.plist */,
+				AA01C2B3221AF9F200F603EB /* Modules */,
+				AA01C2B4221AFA0A00F603EB /* Protocols */,
+				AA01C2B2221AF9C700F603EB /* Resources */,
+				AA01C2AF221AF9AF00F603EB /* Other */,
 			);
 			path = SegueIdentifiersDemo;
 			sourceTree = "<group>";
@@ -288,7 +336,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TDR3533VJS;
-				INFOPLIST_FILE = SegueIdentifiersDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SegueIdentifiersDemo/Other/Config/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,7 +354,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TDR3533VJS;
-				INFOPLIST_FILE = SegueIdentifiersDemo/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/SegueIdentifiersDemo/Other/Config/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
